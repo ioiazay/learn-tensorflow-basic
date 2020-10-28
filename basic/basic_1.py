@@ -1,7 +1,6 @@
 import tensorflow as tf
 import numpy as np
 from tensorflow import keras
-# from tensorflow.contrib import lite
 
 model = tf.keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
 model.compile(optimizer='sgd', loss='mean_squared_error')
@@ -15,7 +14,3 @@ print('Pre: ', model.predict([10.0]))
 # Import the model
 keras_file = "modelOne.h5"
 keras.models.save_model(model, keras_file)
-
-# converter = lite.TocoConverter.from_keras_model_file(keras_file)
-# tflite_model = converter.convert()
-# open("modelOne.tflite", "wb").write(tflite_model)
